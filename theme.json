@@ -1,7 +1,35 @@
 {
-	"$schema": "https://schemas.wp.org/wp/6.8/theme.json",
 	"settings": {
 		"appearanceTools": true,
+		"color": {
+			"palette": [
+				{
+					"color": "#053A6F",
+					"name": "Main Blue",
+					"slug": "main-blue"
+				},
+				{
+					"color": "#E3715C",
+					"name": "Apply Button (Accent)",
+					"slug": "accent-orange"
+				},
+				{
+					"color": "#EDEDED",
+					"name": "Off White",
+					"slug": "off-white"
+				},
+				{
+					"color": "#222222",
+					"name": "Dark Text",
+					"slug": "dark-text"
+				},
+				{
+					"color": "#FFFFFF",
+					"name": "White",
+					"slug": "white"
+				}
+			]
+		},
 		"layout": {
 			"contentSize": "620px",
 			"wideSize": "1000px"
@@ -14,35 +42,6 @@
 				"rem",
 				"vh",
 				"vw"
-			]
-		},
-		"color": {
-			"palette": [
-				{
-					"slug": "main-blue",
-					"name": "Main Blue",
-					"color": "#053A6F"
-				},
-				{
-					"slug": "accent-orange",
-					"name": "Apply Button (Accent)",
-					"color": "#E3715C"
-				},
-				{
-					"slug": "off-white",
-					"name": "Off White",
-					"color": "#EDEDED"
-				},
-				{
-					"slug": "dark-text",
-					"name": "Dark Text",
-					"color": "#222222"
-				},
-				{
-					"slug": "white",
-					"name": "White",
-					"color": "#FFFFFF"
-				}
 			]
 		},
 		"typography": {
@@ -66,5 +65,6 @@
 			"name": "footer"
 		}
 	],
-	"version": 3
+	"version": 3,
+	"$schema": "https://schemas.wp.org/wp/6.8/theme.json"
 }
