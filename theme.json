@@ -1,9 +1,41 @@
 {
 	"settings": {
 		"appearanceTools": true,
+		"color": {
+			"palette": [
+				{
+					"color": "#053A6F",
+					"name": "Main Blue",
+					"slug": "main-blue"
+				},
+				{
+					"color": "#E3715C",
+					"name": "Apply Button (Accent)",
+					"slug": "accent-orange"
+				},
+				{
+					"color": "#EDEDED",
+					"name": "Off White",
+					"slug": "off-white"
+				},
+				{
+					"color": "#222222",
+					"name": "Dark Text",
+					"slug": "dark-text"
+				},
+				{
+					"color": "#FFFFFF",
+					"name": "White",
+					"slug": "white"
+				}
+			]
+		},
 		"layout": {
 			"contentSize": "50rem",
 			"wideSize": "62.5px"
+		},
+		"shadow": {
+			"presets": []
 		},
 		"spacing": {
 			"units": [
@@ -13,35 +45,6 @@
 				"rem",
 				"vh",
 				"vw"
-			]
-		},
-		"color": {
-			"palette": [
-				{
-					"slug": "main-blue",
-					"name": "Main Blue",
-					"color": "#053A6F"
-				},
-				{
-					"slug": "accent-orange",
-					"name": "Apply Button (Accent)",
-					"color": "#E3715C"
-				},
-				{
-					"slug": "off-white",
-					"name": "Off White",
-					"color": "#EDEDED"
-				},
-				{
-					"slug": "dark-text",
-					"name": "Dark Text",
-					"color": "#222222"
-				},
-				{
-					"slug": "white",
-					"name": "White",
-					"color": "#FFFFFF"
-				}
 			]
 		},
 		"typography": {
@@ -327,8 +330,80 @@
 		"useRootPaddingAwareAlignments": true
 	},
 	"styles": {
+		"blocks": {
+			"core/button": {
+				"color": {
+					"background": "var(--wp--preset--color--luminous-vivid-amber)",
+					"text": "var(--wp--preset--color--main-blue)"
+				},
+				"elements": {
+					"link": {
+						"color": {
+							"text": "var(--wp--preset--color--main-blue)"
+						}
+					}
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--figtree)",
+					"fontSize": "1rem",
+					"fontStyle": "normal",
+					"fontWeight": "500",
+					"textTransform": "uppercase"
+				},
+				"variations": {
+					"outline": {
+						"border": {
+							"bottom": {
+								"color": "currentColor",
+								"style": "solid",
+								"width": "4px"
+							},
+							"color": null,
+							"left": {
+								"color": "currentColor",
+								"style": "solid",
+								"width": "4px"
+							},
+							"radius": "60px",
+							"right": {
+								"color": "currentColor",
+								"style": "solid",
+								"width": "4px"
+							},
+							"style": null,
+							"top": {
+								"color": "currentColor",
+								"style": "solid",
+								"width": "4px"
+							},
+							"width": null
+						},
+						"color": {
+							"background": "var(--wp--preset--color--luminous-vivid-amber)",
+							"text": "var(--wp--preset--color--dark-text)"
+						},
+						"typography": {
+							"fontFamily": "var(--wp--preset--font-family--figtree)",
+							"fontSize": "1rem",
+							"fontStyle": "normal",
+							"fontWeight": "500",
+							"textDecoration": "none",
+							"textTransform": "uppercase"
+						}
+					}
+				}
+			}
+		},
+		"color": {
+			"background": "var(--wp--preset--color--off-white)",
+			"text": "var(--wp--preset--color--main-blue)"
+		},
 		"elements": {
 			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--luminous-vivid-amber)",
+					"text": "var(--wp--preset--color--main-blue)"
+				},
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--figtree)",
 					"fontSize": "1rem",
@@ -338,6 +413,9 @@
 				}
 			},
 			"caption": {
+				"color": {
+					"text": "var(--wp--preset--color--main-blue)"
+				},
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--figtree)",
 					"fontSize": "1rem",
@@ -396,11 +474,22 @@
 				}
 			},
 			"heading": {
+				"color": {
+					"text": "var(--wp--preset--color--main-blue)"
+				},
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--montserrat)"
 				}
 			},
 			"link": {
+				":hover": {
+					"color": {
+						"text": "var(--wp--preset--color--dark-text)"
+					}
+				},
+				"color": {
+					"text": "var(--wp--preset--color--main-blue)"
+				},
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--figtree)",
 					"fontSize": "1rem",
