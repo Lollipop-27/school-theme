@@ -1,13 +1,10 @@
 <?php
 // Enqueue CSS files
 function schoolsite_enqueue_styles() {
-    // 1. Normalize CSS
+    // Normalize CSS
     wp_enqueue_style('normalize', get_template_directory_uri() . '/css/normalize.css');
 
-    // 2. Main CSS
-    // wp_enqueue_style('main-style', get_template_directory_uri() . '/css/main.css');
-
-    // 3. Theme stylesheet (optional)
+    // Theme stylesheet (style.css)
     wp_enqueue_style('theme-style', get_stylesheet_uri());
 }
 add_action('wp_enqueue_scripts', 'schoolsite_enqueue_styles');
@@ -17,7 +14,7 @@ function schoolsite_theme_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     register_nav_menus(array(
-        'main-menu' => __('Main Menu', 'schoolsite'),
+        'main-menu'   => __('Main Menu', 'schoolsite'),
         'footer-menu' => __('Footer Menu', 'schoolsite')
     ));
 }
