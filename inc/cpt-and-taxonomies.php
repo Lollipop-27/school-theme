@@ -1,10 +1,12 @@
 <?php
-// ----------------------------------------
-// Custom Post Types
-// ----------------------------------------
+// -----------------------------------------------------------
+// CUSTOM POST TYPES
+// -----------------------------------------------------------
 function schoolsite_register_custom_post_types() {
 
-    // Student CPT ------------------------
+    // ************************************
+    // 1. Student CPT
+    // ************************************
     
     $labels = array(
         'name'                     => _x( 'Students', 'post type general name', 'school-site' ),
@@ -48,28 +50,60 @@ function schoolsite_register_custom_post_types() {
         'publicly_queryable' => true,
         'show_ui'            => true,
         'show_in_menu'       => true,
-        'show_in_nav_menus'  => true, 
-
+        'show_in_nav_menus'  => true,
         'show_in_admin_bar'  => true,
         'show_in_rest'       => true,
-        'query_var'          => true, // enables use of WP_Query
+        'query_var'          => true, 
         'rewrite'            => array( 'slug' => 'students' ),
         'capability_type'    => 'post',
-        'has_archive'        => true, // enables archive page at /works, must be set to true
+        'has_archive'        => true, 
         'hierarchical'       => false,
         'menu_position'      => 5,
-
-        // Go to https://developer.wordpress.org/resource/dashicons to select a dashicon to use. When you find one you like, click on it, and it will tell you what value to enter here. Example: Here I am using the graduation cap icon, which it tells me is 'dashicons-welcome-learn-more'
-        'menu_icon'          => 'dashicons-welcome-learn-more',
-
+        'menu_icon'          => 'dashicons-welcome-learn-more', // Go to https://developer.wordpress.org/resource/dashicons to select a menu icon to use. When you find one you like, click on it, and it will tell you what value to enter here. 
         'supports'           => array( 'title', 'editor', 'featured image' ),
+
+        // Block Editor Template ----------------------------------------------
+        'template'           => array(
+            array( 'core/paragraph', array( 'placeholder' => 'Write a short biography' ) ),
+            array( 'core/button', array( 'text' => 'View Portfolio', 'url' => '#' ) ),
+        ),
+        // 'template_lock'      => 'all'
     );
     register_post_type( 'school-student', $args );
+}
+    add_action( 'init', 'schoolsite_register_custom_post_types' );
 
-    // Staff CPT --------------------------
+    // Change Placeholder -------------------------------------------------
+    if( is_admin() ) {
+        add_filter( 'enter_title_here', function( $input ) {
+            if( 'school-student' === get_post_type() ) {
+                return __( 'Add Student Name', 'school-site' );
+	} else {
+        return $input;
+    }
+	    } );
+    }
 
+    // ************************************
+    // 2. Staff CPT
+    // ************************************
+
+
+
+// -----------------------------------------------------------
+// TAXONOMIES
+// -----------------------------------------------------------
+
+    // ************************************
+    // 1. Student Taxonomies
+    // ************************************
+
+
+// Flush rewrite rules when activating the theme
+function schoolsite_rewrite_flush() {
+    schoolsite_register_custom_post_types();
+    schoolsite_register_taxonomies();
+    flush_rewrite_rules();
 }
 
-// ----------------------------------------
-// Taxonomies
-// ----------------------------------------
+?>
