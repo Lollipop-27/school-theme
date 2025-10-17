@@ -60,14 +60,14 @@ function schoolsite_register_custom_post_types() {
         'hierarchical'       => false,
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-welcome-learn-more', // Go to https://developer.wordpress.org/resource/dashicons to select a menu icon to use. When you find one you like, click on it, and it will tell you what value to enter here. 
-        'supports'           => array( 'title', 'editor', 'featured image' ),
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
 
         // Block Editor Template ----------------------------------------------
         'template'           => array(
             array( 'core/paragraph', array( 'placeholder' => 'Write a short biography' ) ),
             array( 'core/button', array( 'text' => 'View Portfolio', 'url' => '#' ) ),
         ),
-        'template_lock'      => 'insert',
+        // 'template_lock'      => 'insert',
     );
     register_post_type( 'school-student', $args );
 }
