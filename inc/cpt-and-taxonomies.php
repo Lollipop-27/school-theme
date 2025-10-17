@@ -67,7 +67,7 @@ function schoolsite_register_custom_post_types() {
             array( 'core/paragraph', array( 'placeholder' => 'Write a short biography' ) ),
             array( 'core/button', array( 'text' => 'View Portfolio', 'url' => '#' ) ),
         ),
-        // 'template_lock'      => 'all'
+        'template_lock'      => 'insert',
     );
     register_post_type( 'school-student', $args );
 }
@@ -97,6 +97,45 @@ function schoolsite_register_custom_post_types() {
     // ************************************
     // 1. Student Taxonomies
     // ************************************
+
+	function schoolsite_register_taxonomies() {
+    $labels = array(
+        'name'                  => _x( 'Specialties', 'taxonomy general name', 'school-site' ),
+        'singular_name'         => _x( 'Specialty', 'taxonomy singular name', 'school-site' ),
+        'search_items'          => __( 'Search Specialties', 'school-site' ),
+        'all_items'             => __( 'All Specialty', 'school-site' ),
+        'parent_item'           => __( 'Parent Specialty', 'school-site' ),
+        'parent_item_colon'     => __( 'Parent Specialty:', 'school-site' ),
+        'edit_item'             => __( 'Edit Specialty', 'school-site' ),
+        'view_item'             => __( 'View Specialty', 'school-site' ),
+        'update_item'           => __( 'Update Specialty', 'school-site' ),
+        'add_new_item'          => __( 'Add New Specialty', 'school-site' ),
+        'new_item_name'         => __( 'New Specialty Name', 'school-site' ),
+        'template_name'         => __( 'Specialty Archives', 'school-site' ),
+        'menu_name'             => __( 'Specialty', 'school-site' ),
+        'not_found'             => __( 'No specialties found.', 'school-site' ),
+        'no_terms'              => __( 'No specialties', 'school-site' ),
+        'items_list_navigation' => __( 'Specialties list navigation', 'school-site' ),
+        'items_list'            => __( 'Specialties list', 'school-site' ),
+        'item_link'             => __( 'Specialty Link', 'school-site' ),
+        'item_link_description' => __( 'A link to a specialty.', 'school-site' ),
+    );
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_in_menu'      => true,
+        'show_in_nav_menu'  => true,
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'specialties' ),
+    );
+    
+    register_taxonomy( 'student-specialty', array( 'school-student' ), $args );
+    }
+
+add_action( 'init', 'schoolsite_register_taxonomies' );
 
 
 // Flush rewrite rules when activating the theme

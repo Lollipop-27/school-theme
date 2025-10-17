@@ -27,7 +27,7 @@
 		},
 		"layout": {
 			"contentSize": "50rem",
-			"wideSize": "62.5px"
+			"wideSize": "62.5rem"
 		},
 		"shadow": {
 			"presets": []

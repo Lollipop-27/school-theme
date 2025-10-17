@@ -22,7 +22,6 @@ function schoolsite_theme_setup() {
     ));
 }
 add_action('after_setup_theme', 'schoolsite_theme_setup');
-// add_action( 'init', 'schoolsite_register_custom_post_types' );
 
 // Register Custom Post Types
 require get_theme_file_path() . '/inc/cpt-and-taxonomies.php';
