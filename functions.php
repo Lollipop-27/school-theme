@@ -23,5 +23,28 @@ function schoolsite_theme_setup() {
 }
 add_action('after_setup_theme', 'schoolsite_theme_setup');
 
+// New image sizes
+function schoolsite_setup() {
+    // Load style.css on the backend
+	add_editor_style( get_stylesheet_uri() );
+
+    // Crop images to 400px by 600px
+    add_image_size( '400x600', 400, 600, true );
+
+    // Crop images to 300px by 500px
+    add_image_size( '300x500', 300, 500, true );
+}
+add_action( 'after_setup_theme', 'schoolsite_setup' );
+
+// Make custom sizes selectable from WordPress admin
+function schoolsite_add_custom_image_sizes( $size_names ) {
+	$new_sizes = array(
+		'400x600' => __( '400x600', 'schoolsite-theme' ),
+		'300x500' => __( '300x500', 'schoolsite-theme' )
+	);
+	return array_merge( $size_names, $new_sizes );
+}
+add_filter( 'image_size_names_choose', 'schoolsite_add_custom_image_sizes' );
+
 // Register Custom Post Types
 require get_theme_file_path() . '/inc/cpt-and-taxonomies.php';
