@@ -48,3 +48,38 @@ add_filter( 'image_size_names_choose', 'schoolsite_add_custom_image_sizes' );
 
 // Register Custom Post Types
 require get_theme_file_path() . '/inc/cpt-and-taxonomies.php';
+
+// CDN lightGallery
+function schoolsite_enqueue_lightgallery() {
+    // Only load on the front page
+    if ( is_front_page() ) {
+
+        // Enqueue lightGallery CSS
+        wp_enqueue_style(
+            'lightgallery-css',
+            'https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css',
+            array(),
+            '2.7.2'
+        );
+
+        // Enqueue lightGallery JS
+        wp_enqueue_script(
+            'lightgallery-js',
+            'https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.umd.min.js',
+            array('jquery'),
+            '2.7.2',
+            true
+        );
+
+        // Enqueue your custom settings file
+        wp_enqueue_script(
+            'lightgallery-init',
+            get_template_directory_uri() . '/assets/js/lightgallery-init.js',
+            array('lightgallery-js'),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'schoolsite_enqueue_lightgallery' );
+
