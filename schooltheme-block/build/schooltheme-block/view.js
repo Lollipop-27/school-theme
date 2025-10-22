@@ -1,0 +1,1 @@
+console.log("Hello World! (from fwd-blocks-schooltheme-block block)");

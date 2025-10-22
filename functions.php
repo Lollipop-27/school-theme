@@ -7,10 +7,38 @@ function schoolsite_enqueue_styles() {
     // 2. Main CSS
     // wp_enqueue_style('main-style', get_template_directory_uri() . '/css/main.css');
 
-    // 3. Theme stylesheet (optional)
+    // 3. Theme stylesheet
     wp_enqueue_style('theme-style', get_stylesheet_uri());
+
+    // 4. AOS CSS
+    wp_enqueue_style('aos-css', 
+        'https://unpkg.com/aos@2.3.1/dist/aos.css', 
+        array(), //  dependencies
+        '2.3.4', //  version
+    );
 }
 add_action('wp_enqueue_scripts', 'schoolsite_enqueue_styles');
+
+// Enqueue JS files
+function schoolsite_enqueue_scripts() {
+    // AOS JS
+    wp_enqueue_script('aos-js',
+        'https://unpkg.com/aos@2.3.1/dist/aos.js',
+        array(), //  dependencies
+        '2.3.1', //  version
+        true //  load in footer
+    );
+
+    // Initialize AOS
+    wp_add_inline_script('aos-js', 
+        'AOS.init({
+            duration: 500,
+            once: true,
+            offset: 100
+        });'  
+    );
+}
+add_action('wp_enqueue_scripts', 'schoolsite_enqueue_scripts');
 
 // Basic theme setup
 function schoolsite_theme_setup() {
@@ -48,3 +76,5 @@ add_filter( 'image_size_names_choose', 'schoolsite_add_custom_image_sizes' );
 
 // Register Custom Post Types
 require get_theme_file_path() . '/inc/cpt-and-taxonomies.php';
+
+require get_theme_file_path() . '/schooltheme-block/schooltheme-block.php';

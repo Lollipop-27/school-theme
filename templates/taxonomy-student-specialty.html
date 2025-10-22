@@ -1,17 +1,17 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
 <!-- wp:group {"metadata":{"name":"Main"},"className":"site-main","layout":{"type":"constrained","contentSize":"62.5rem"}} -->
-<div class="wp-block-group site-main"><!-- wp:query-title {"type":"archive"} /-->
+<div class="wp-block-group site-main"><!-- wp:query-title {"type":"archive","showPrefix":false} /-->
 
 <!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"blockGap":"0","padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)"><!-- wp:query {"queryId":2,"query":{"perPage":10,"pages":0,"offset":0,"postType":"school-student","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[],"meta_query":[]},"namespace":"advanced-query-loop","layout":{"type":"default"}} -->
-<div class="wp-block-query"><!-- wp:post-template {"layout":{"type":"default"}} -->
-<!-- wp:group {"tagName":"article","metadata":{"name":"Article"}} -->
-<article class="wp-block-group"><!-- wp:post-title {"isLink":true} /-->
+<div class="wp-block-query"><!-- wp:post-template {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"grid","columnCount":2}} -->
+<!-- wp:group {"tagName":"article","metadata":{"name":"Article"},"style":{"spacing":{"padding":{"right":"0","left":"0"},"blockGap":"0","margin":{"top":"0","bottom":"0"}}}} -->
+<article class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-right:0;padding-left:0"><!-- wp:post-title {"level":3,"isLink":true,"style":{"typography":{"fontSize":"1.4rem"}}} /-->
 
-<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"auto","width":"","height":"","sizeSlug":"full","align":"left","style":{"border":{"width":"5px"}},"borderColor":"main-blue"} /-->
+<!-- wp:post-terms {"term":"student-specialty","style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"0"},"margin":{"top":"0","bottom":"0"}},"typography":{"fontSize":"0rem"}}} /-->
 
-<!-- wp:post-terms {"term":"student-specialty"} /--></article>
+<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"auto","width":"400px","height":"600px","sizeSlug":"400x600","align":"left","style":{"border":{"width":"5px"}},"borderColor":"main-blue"} /--></article>
 <!-- /wp:group -->
 <!-- /wp:post-template -->
 
